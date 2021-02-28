@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'wouter';
+
 import './styles.css';
 
 import Input from '@material-ui/core/Input';
@@ -11,10 +13,18 @@ const styles = {
 
 const Home = ( ) =>
 {
+	const [keyword, setKeyword] = useState( `` );
+	const [_path, pushLocation] = useLocation();
+
 	const handleSubmit = ( e ) =>
 	{
 		e.preventDefault();
-		console.log( e.target );
+		pushLocation( `/search/${keyword}` );
+	};
+
+	const handleChange = ( e ) =>
+	{
+		setKeyword( e.target.value );
 	};
 
 	return (
@@ -35,10 +45,13 @@ const Home = ( ) =>
 									  <SearchIcon />
 								</InputAdornment>
 							)}
+							onChange={handleChange}
+							value={keyword}
 						/>
 					</form>
 				</div>
 			</div>
+
 		</div>
 	);
 };
