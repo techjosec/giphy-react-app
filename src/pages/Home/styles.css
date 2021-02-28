@@ -1,0 +1,14 @@
+.Home {
+    width: 80%;
+}
+
+.Search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.Search div {
+    padding: 0.5em;
+}
