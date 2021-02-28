@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'wouter';
 import './App.css';
 import ListOfGifs from './components/gifs/List';
 
@@ -6,7 +7,7 @@ const App = () => (
 	<div className="App">
 		<section className="App-content">
 			<h1>Another Giphy React APP!</h1>
-			<ListOfGifs keyword="panda" />
+			<Route path="/gifs/:keyword" component={ListOfGifs} />
 		</section>
 	</div>
 );

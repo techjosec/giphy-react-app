@@ -11,7 +11,7 @@ export default function Gif( { id, title, url } )
 		<a style={{ ...styles }} href={`#${id}`}>
 			<h4>{ title }</h4>
 			<figure>
-				<img alt={title} src={url} />
+				<img loading="lazy" alt={title} src={url} />
 			</figure>
 		</a>
 	);

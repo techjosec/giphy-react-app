@@ -4,8 +4,9 @@ import './styles.css';
 
 import Gif from "./Gif";
 
-export default function List( { keyword = `random` } )
+export default function List( { params } )
 {
+	const { keyword } = params;
 	const [gifs, setGifs] = useState( [] );
 
 	useEffect( () =>
@@ -14,12 +15,18 @@ export default function List( { keyword = `random` } )
 			.then( ( _gifs ) => setGifs( _gifs ) );
 	}, [keyword] );
 
-	return gifs.map( ( { id, title, url } ) => (
-		<Gif
-			key={id}
-			id={id}
-			title={title}
-			url={url}
-		/>
-	) );
+	return (
+		<>
+			{
+				gifs.map( ( { id, title, url } ) => (
+					<Gif
+						key={id}
+						id={id}
+						title={title}
+						url={url}
+					/>
+				) )
+			}
+		</>
+	);
 }

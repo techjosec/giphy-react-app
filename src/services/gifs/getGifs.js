@@ -28,4 +28,5 @@ const getGifs = ( _keyword = `ramdom` ) =>
 			throw new Error( error.message );
 		} );
 };
+
 export default getGifs;
