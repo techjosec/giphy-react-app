@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-
+import React, { useEffect, useState } from 'react';
+import getGifs from './services/getGifs';
 import './App.css';
+import Gif from './components/Gif';
 
 const App = () =>
 {
 	const [gifs, setGifs] = useState( [] );
 
-	console.log( gifs );
+	useEffect( () =>
+	{
+		getGifs( `programming` )
+			.then( ( _gifs ) => setGifs( _gifs ) );
+	}, [] );
 
 	return (
 		<div className="App">
-			<section className="App-content">
-				<h3>Another Giphy React APP!</h3>
-				<Button variant="contained" color="primary">
-      				Hola Mundo!
-				</Button>
-			</section>
+			<div className="App-content">
+				<h1>Another Giphy React APP!</h1>
+
+				{
+					gifs && gifs.map( ( gif ) => (
+						<Gif
+							key={gif.id}
+							id={gif.id}
+							title={gif.title}
+							url={gif.url}
+						/>
+					) )
+				}
+
+			</div>
 		</div>
 	);
 };
