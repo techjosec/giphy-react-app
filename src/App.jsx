@@ -3,7 +3,7 @@ import { Route } from 'wouter';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import './App.css';
-import ListOfGifs from './components/gifs/List';
+import SearchResults from './pages/SearchResults';
 import Home from './pages/Home';
 
 const theme = createMuiTheme( {
@@ -19,8 +19,7 @@ const App = () => (
 		<div className="App">
 			<section className="App-content">
 				<h1>Another Gifs APP!</h1>
-				<Route path="/search/:keyword" component={ListOfGifs} />
-				<Route path="/gif/:id" component={ListOfGifs} />
+				<Route path="/search/:keyword" component={SearchResults} />
 				<Route path="/" component={Home} />
 			</section>
 		</div>
