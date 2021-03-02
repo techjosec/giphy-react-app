@@ -5,14 +5,18 @@ const styles = {
 	color          : `#fff`,
 };
 
+const sanitizeTitle = ( title ) => title.toUpperCase().split( `GIF` )[0].trim();
+
 export default function Gif( { id, title, url } )
 {
 	return (
-		<a style={{ ...styles }} href={`#${id}`}>
-			<h4>{ title }</h4>
-			<figure>
-				<img loading="lazy" alt={title} src={url} />
-			</figure>
-		</a>
+		<div>
+			<a style={{ ...styles }} href={`#${id}`}>
+				<h4>{ sanitizeTitle( title ) }</h4>
+				<figure>
+					<img loading="lazy" alt={title} src={url} />
+				</figure>
+			</a>
+		</div>
 	);
 }

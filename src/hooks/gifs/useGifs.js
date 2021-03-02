@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import getGifs from '../../services/gifs/getGifs';
 
-export default function useGifs( keyword, limit = 10, offset = 0 )
+export default function useGifs( keyword, limit, offset )
 {
 	const [loading, setLoading] = useState( false );
 	const [gifs, setGifs] = useState( [] );

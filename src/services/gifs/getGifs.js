@@ -1,7 +1,15 @@
 const apiKey = `ggn8mntOjyXtEOLUXsbZjwfbjJ9ZLAOb`;
 const apiBaseUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}`;
 
-const getGifs = ( _keyword = `random`, limit = 10, offset = 0 ) =>
+const setRandomOffset = ( ) =>
+{
+	const min = 0;
+	const max = 500;
+	const random = Math.floor( Math.random() * ( max - min + 1 ) + min );
+	return random;
+};
+
+const getGifs = ( _keyword = `random`, limit = 10, offset = setRandomOffset() ) =>
 {
 	const query = `&q=${_keyword}&limit=${limit}&offset=${offset}&rating=g&lang=en`;
 	const queryUrl = apiBaseUrl + query;

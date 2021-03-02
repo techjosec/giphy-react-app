@@ -2,10 +2,10 @@ import React from 'react';
 import './styles.css';
 import Gif from "./Gif";
 
-export default function List( { gifs } )
+export default function ListOfGifs( { gifs } )
 {
 	return (
-		<h4>
+		<div className="gifs-wrapper">
 			{
 				gifs.map( ( { id, title, url } ) => (
 					<Gif
@@ -16,6 +16,6 @@ export default function List( { gifs } )
 					/>
 				) )
 			}
-		</h4>
+		</div>
 	);
 }
