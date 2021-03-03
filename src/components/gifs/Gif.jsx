@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'wouter';
 
 const styles = {
 	textDecoration : `none`,
@@ -11,12 +12,12 @@ export default function Gif( { id, title, url } )
 {
 	return (
 		<div>
-			<a style={{ ...styles }} href={`#${id}`}>
+			<Link style={{ ...styles }} href={`/gif/${id}`}>
 				<h4>{ sanitizeTitle( title ) }</h4>
 				<figure>
 					<img loading="lazy" alt={title} src={url} />
 				</figure>
-			</a>
+			</Link>
 		</div>
 	);
 }

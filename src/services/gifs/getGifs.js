@@ -9,7 +9,7 @@ const setRandomOffset = ( ) =>
 	return random;
 };
 
-const getGifs = ( _keyword = `random`, limit = 10, offset = setRandomOffset() ) =>
+const getGifs = ( _keyword, limit = 10, offset = setRandomOffset() ) =>
 {
 	const query = `&q=${_keyword}&limit=${limit}&offset=${offset}&rating=g&lang=en`;
 	const queryUrl = apiBaseUrl + query;
