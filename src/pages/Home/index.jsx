@@ -17,7 +17,7 @@ const styles = {
 const Home = ( ) =>
 {
 	const [keyword, setKeyword] = useState( `` );
-	const [_path, pushLocation] = useLocation();
+	const [_path, pushLocation] = useLocation( );
 	const { loading, gifs } = useGifs( );
 
 	const handleSubmit = ( e ) =>

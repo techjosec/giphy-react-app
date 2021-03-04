@@ -5,7 +5,7 @@ import { GifsContextProvider } from './context/GifsContext';
 import './App.css';
 import SearchResults from './pages/SearchResults';
 import Home from './pages/Home';
-// import Detail from './pages/Detail';
+import Detail from './pages/Detail';
 
 const theme = createMuiTheme( {
 	palette: {
@@ -22,8 +22,8 @@ const App = () => (
 				<h1>Another Gifs APP!</h1>
 				<GifsContextProvider>
 					<Route path="/search/:keyword" component={SearchResults} />
+					<Route path="/gif/:id" component={Detail} />
 					<Route path="/" component={Home} />
-					{/* <Route path="/gif/:id" component={Detail} /> */}
 				</GifsContextProvider>
 			</section>
 		</div>

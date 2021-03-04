@@ -1,10 +1,12 @@
 const apiKey = `ggn8mntOjyXtEOLUXsbZjwfbjJ9ZLAOb`;
 const apiBaseUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}`;
 
+const sanitizeTitle = ( title ) => title.toUpperCase().split( `GIF` )[0].trim();
+
 const setRandomOffset = ( ) =>
 {
 	const min = 0;
-	const max = 500;
+	const max = 10;
 	const random = Math.floor( Math.random() * ( max - min + 1 ) + min );
 	return random;
 };
@@ -25,7 +27,7 @@ const getGifs = ( _keyword, limit = 10, offset = setRandomOffset() ) =>
 				{
 					const { id, title, images } = image;
 					const { url } = images.downsized_medium;
-					return { id, url, title };
+					return { id, url, title: sanitizeTitle( title ) };
 				} );
 				return gifs;
 			}

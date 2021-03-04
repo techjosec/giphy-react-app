@@ -4,14 +4,19 @@ import GifsContext from '../../context/GifsContext';
 function index( { params } )
 {
 	const { gifs } = useContext( GifsContext );
-	console.log( { gifs } );
+	const { title, url } = gifs.find( ( _gif ) => _gif.id === params.id );
 
 	return (
-		<h4>
-			{` `}
-			{ params.id }
-			{` `}
-		</h4>
+		<>
+			<h4>
+				{` `}
+				{ title }
+				{` `}
+			</h4>
+			<figure>
+				<img loading="lazy" alt={title} src={url} />
+			</figure>
+		</>
 	);
 }
 
