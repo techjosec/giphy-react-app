@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import GifsContext from '../../context/GifsContext';
+import React from 'react';
+import useGlobalGifs from '../../hooks/gifs/useGlobalGifs';
 import ButtonLink from '../../components/common/ButtonLink';
 
 function index( { params } )
 {
-	const { gifs } = useContext( GifsContext );
+	const gifs = useGlobalGifs( );
 	const { title, url } = gifs.find( ( _gif ) => _gif.id === params.id );
 
 	return (
