@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'wouter';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import ListOfGifs from '../../components/gifs/List';
 import useGifs from '../../hooks/gifs/useGifs';
+import ListOfGifs from '../../components/gifs/List';
+import ButtonLink from '../../components/common/ButtonLink';
 
 function SearchResults( { params } )
 {
@@ -20,7 +20,7 @@ function SearchResults( { params } )
 					{ `No results found for ${keyword}`}
 					{` `}
 				</h4>
-				<Link className="go-back" href="/">Go back!</Link>
+				<ButtonLink to="/" title="Home" />
 			</>
 		);
 	}
