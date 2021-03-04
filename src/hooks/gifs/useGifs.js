@@ -4,10 +4,11 @@ import GifsContext from '../../context/GifsContext';
 
 export default function useGifs( keyword = `` )
 {
+	const DEFAULT_KEYWORD = `random`;
 	const [loading, setLoading] = useState( false );
 	const { gifs, setGifs } = useContext( GifsContext );
 
-	const keywordToUse = keyword || localStorage.getItem( `lastKeyword` ) || `random`;
+	const keywordToUse = keyword || localStorage.getItem( `lastKeyword` ) || DEFAULT_KEYWORD;
 
 	useEffect( () =>
 	{
@@ -17,7 +18,7 @@ export default function useGifs( keyword = `` )
 			{
 				setGifs( _gifs );
 				setLoading( false );
-				localStorage.setItem( `lastKeyword`, keywordToUse );
+				localStorage.setItem( `lastKeyword`, _gifs.length > 0 ? keywordToUse : DEFAULT_KEYWORD );
 			} );
 	},
 	[keyword, setGifs] );
