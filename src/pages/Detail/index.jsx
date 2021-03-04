@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import GifsContext from '../../context/GifsContext';
+import ButtonLink from '../../components/common/ButtonLink';
 
 function index( { params } )
 {
@@ -16,6 +17,8 @@ function index( { params } )
 			<figure>
 				<img loading="lazy" alt={title} src={url} />
 			</figure>
+
+			<ButtonLink />
 		</>
 	);
 }

@@ -7,6 +7,7 @@ const styles = {
 	backgroundColor : `darkorange`,
 	padding         : `.2rem`,
 	borderRadius    : `5px`,
+	fontWeight      : `bolder`,
 };
 
 export default function ButtonLink( { to = `/`, title = `Home` } )
