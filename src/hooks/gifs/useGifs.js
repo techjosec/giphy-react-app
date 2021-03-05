@@ -8,20 +8,24 @@ export default function useGifs( keyword = `` )
 	const [loading, setLoading] = useState( false );
 	const { gifs, setGifs } = useContext( GifsContext );
 
-	const keywordToUse = keyword || localStorage.getItem( `lastKeyword` ) || DEFAULT_KEYWORD;
+	const localStorageKeyword = localStorage.getItem( `lastKeyword` );
+	const keywordToUse = keyword || localStorageKeyword || DEFAULT_KEYWORD;
 
 	useEffect( () =>
 	{
-		setLoading( true );
-		getGifs( keywordToUse )
-			.then( ( _gifs ) =>
-			{
-				setGifs( _gifs );
-				setLoading( false );
-				localStorage.setItem( `lastKeyword`, _gifs.length > 0 ? keywordToUse : DEFAULT_KEYWORD );
-			} );
+		if ( localStorageKeyword !== keywordToUse || gifs.length === 0 )
+		{
+			setLoading( true );
+			getGifs( keywordToUse )
+				.then( ( _gifs ) =>
+				{
+					setGifs( _gifs );
+					setLoading( false );
+					localStorage.setItem( `lastKeyword`, _gifs.length > 0 ? keywordToUse : DEFAULT_KEYWORD );
+				} );
+		}
 	},
-	[keyword, setGifs] );
+	[keywordToUse] );
 
 	return { loading, gifs };
 }
