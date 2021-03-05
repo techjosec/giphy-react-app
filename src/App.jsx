@@ -20,11 +20,13 @@ const App = () => (
 		<div className="App">
 			<section className="App-content">
 				<h1>Another Gifs APP!</h1>
-				<GifsContextProvider>
-					<Route path="/search/:keyword" component={SearchResults} />
-					<Route path="/gif/:id" component={Detail} />
-					<Route path="/" component={Home} />
-				</GifsContextProvider>
+				<div className="wrapper">
+					<GifsContextProvider>
+						<Route path="/search/:keyword" component={SearchResults} />
+						<Route path="/gif/:id" component={Detail} />
+						<Route path="/" component={Home} />
+					</GifsContextProvider>
+				</div>
 			</section>
 		</div>
 	</MuiThemeProvider>

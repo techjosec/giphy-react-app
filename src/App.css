@@ -15,3 +15,7 @@
 .App-content>h1 {
     border-bottom-style: solid;
 }
+
+.wrapper {
+    width: 100%;
+}

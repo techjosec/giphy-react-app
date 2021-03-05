@@ -7,8 +7,13 @@ function index( { params } )
 	const gifs = useGlobalGifs( );
 	const { title, url } = gifs.find( ( _gif ) => _gif.id === params.id );
 
+	const styles = {
+		maxWidth : `450px`,
+		minWidth : `300px`,
+		display  : `inline-block`,
+	};
 	return (
-		<>
+		<div style={{ ...styles }}>
 			<h4>
 				{` `}
 				{ title }
@@ -19,7 +24,7 @@ function index( { params } )
 			</figure>
 
 			<ButtonLink />
-		</>
+		</div>
 	);
 }
 
